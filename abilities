@@ -1,0 +1,50 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Abilities", "LightTheme")
+
+--MAIN
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("abilities")
+
+
+MainSection:NewButton("Extra time", "Adds time", function()
+    game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunctions"):WaitForChild("Overtime"):InvokeServer()
+end)
+
+
+MainSection:NewButton("Invisible", "makes you go invisible", function()
+    local args = {
+    [1] = true
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunctions"):WaitForChild("Cloak"):InvokeServer(unpack(args))
+end)
+
+MainSection:NewButton("banana lobby", "Spawns a banana in the lobby", function()
+    local args = {
+    [1] = CFrame.new(625.6926879882812, 3.852703094482422, -25.297195434570312, -0.8480480909347534, 0, -0.5299192667007446, 0, 1, 0, 0.5299192667007446, 0, -0.8480480909347534)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("BananaPeel"):FireServer(unpack(args))
+end)
+
+MainSection:NewButton("Lucky draw", "idk if it works", function()
+    local args = {
+    [1] = true
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("LuckyDraw"):FireServer(unpack(args))
+end)
+
+MainSection:NewButton("Hunter", "idk if it works, but enables hunter", function()
+      game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("Hunter"):FireServer()
+end)
+
+
+MainSection:NewButton("shoots  guy", "yeah", function()
+    local args = {
+    [1] = Vector3.new(-286.9452819824219, 7.500014305114746, -79.66577911376953),
+    [2] = workspace:WaitForChild("LugerChrls")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvents"):WaitForChild("Sheriff"):FireServer(unpack(args))
+end)
